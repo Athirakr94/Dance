@@ -8,7 +8,7 @@ dancer-portfolio/
 ├── css/style.css
 ├── js/data.js      <- EDIT THIS (your text, links, dates)
 ├── js/main.js
-├── images/         <- put hero.jpg, about.jpg here
+├── images/         <- put hero.jpg, about.jpg, school.jpg here
 │   └── gallery/    <- 01.jpg, 02.jpg, ...
 └── .nojekyll
 ```

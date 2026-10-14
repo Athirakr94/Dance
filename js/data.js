@@ -34,6 +34,51 @@ window.SITE = {
     { year: "2019", title: "Training / certification", detail: "Institution or guru" },
   ],
 
+  // Your dance school / classes. Set `enabled: false` to hide the whole section.
+  school: {
+    enabled: true,
+    name: "Your School Name",
+    tagline: "Where movement becomes art",
+    description:
+      "A short introduction to your school: your teaching philosophy, who you teach " +
+      "(children, teens, adults, beginners to advanced) and what makes your classes special.",
+    photo: "images/school.jpg",
+    // Quick facts shown beside the description
+    facts: [
+      { label: "Founded", value: "2020" },
+      { label: "Students", value: "50+" },
+      { label: "Location", value: "City, State" },
+    ],
+    // Programmes / batches
+    classes: [
+      {
+        name: "Beginners",
+        level: "Ages 6+ · No experience needed",
+        schedule: "Sat & Sun · 5:00 PM",
+        mode: "In person",
+        description: "Foundations of rhythm, posture, basic steps and expression.",
+      },
+      {
+        name: "Intermediate",
+        level: "Ages 10+ · 1-2 years of training",
+        schedule: "Tue & Thu · 6:30 PM",
+        mode: "In person",
+        description: "Complex footwork, compositions and stage presence.",
+      },
+      {
+        name: "Online Batch",
+        level: "All ages and levels",
+        schedule: "Sun · 10:00 AM",
+        mode: "Online (Zoom)",
+        description: "Live classes from anywhere, with recordings to practise with.",
+      },
+    ],
+    // Optional: a link to a registration form (Google Form etc.). Leave "" to use the contact form.
+    enrolLink: "",
+    // Optional: your school's own website or social page
+    website: "",
+  },
+
   // Testimonials
   testimonials: [
     { quote: "A kind word from a teacher, organiser or student.", by: "Name, role" },

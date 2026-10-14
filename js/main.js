@@ -43,6 +43,45 @@
            "</h4><p>" + esc(t.detail) + "</p></li>";
   }).join("");
 
+  /* ---------- School ---------- */
+  var sc = S.school;
+  if (!sc || sc.enabled === false) {
+    $("school").remove();
+    $("navSchool").remove();
+  } else {
+    $("schoolName").textContent = sc.name;
+    $("schoolTagline").textContent = sc.tagline;
+    $("schoolDesc").textContent = sc.description;
+    var sp = $("schoolPhoto");
+    sp.src = sc.photo;
+    sp.alt = sc.name;
+    sp.onerror = function () { sp.removeAttribute("src"); };
+    $("schoolFacts").innerHTML = (sc.facts || []).map(function (f) {
+      return "<li><strong>" + esc(f.value) + "</strong><span>" + esc(f.label) + "</span></li>";
+    }).join("");
+    $("classGrid").innerHTML = (sc.classes || []).map(function (c) {
+      return '<article class="class-card reveal"><span class="mode">' + esc(c.mode) + "</span><h5>" + esc(c.name) +
+        '</h5><p class="level">' + esc(c.level) + "</p><p>" + esc(c.description) +
+        '</p><p class="when">' + esc(c.schedule) + "</p></article>";
+    }).join("");
+
+    var enrol = safeUrl(sc.enrolLink);
+    if (enrol) {
+      $("enrolBtn").href = enrol;
+      $("enrolBtn").target = "_blank";
+      $("enrolBtn").rel = "noopener";
+      $("enrolBtn").textContent = "Enrol now";
+    } else {
+      // Scroll to the contact form and pre-fill a helpful message
+      $("enrolBtn").addEventListener("click", function () {
+        var m = document.querySelector("#contactForm textarea");
+        if (m && !m.value) m.value = "Hello, I would like to enquire about classes at " + sc.name + ".";
+      });
+    }
+    var site = safeUrl(sc.website);
+    if (site) { $("schoolSite").href = site; $("schoolSite").hidden = false; }
+  }
+
   /* ---------- Testimonials ---------- */
   $("quotes").innerHTML = S.testimonials.map(function (q) {
     return '<blockquote class="reveal"><p>“' + esc(q.quote) + "”</p><cite>" + esc(q.by) + "</cite></blockquote>";
