@@ -1,208 +1,129 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The classical dance portfolio of Athira Krishnan — Bharatanatyam, Mohiniyattam and Kuchipudi.">
-  <title>Athira Krishnan | Classical Dance</title>
-  <style>
-    :root {
-      --wine: #641e2b;
-      --wine-dark: #35131c;
-      --gold: #c89b55;
-      --cream: #fbf5eb;
-      --paper: #fffdf8;
-      --ink: #2d2220;
-      --muted: #756865;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: var(--cream); color: var(--ink); font-family: Georgia, "Times New Roman", serif; line-height: 1.65; }
-    a { color: inherit; }
-    .topbar { position: sticky; top: 0; z-index: 10; background: rgba(53,19,28,.97); color: #fff8ed; border-bottom: 1px solid rgba(200,155,85,.5); }
-    .nav { max-width: 1160px; margin: auto; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; gap: 22px; }
-    .brand { font-size: 1.08rem; letter-spacing: .13em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
-    .navlinks { display: flex; flex-wrap: wrap; gap: 18px; }
-    .navlinks a { color: #fff8ed; text-decoration: none; font-size: .9rem; }
-    .navlinks a:hover { color: #e5c58e; }
-    .hero { min-height: 76vh; display: grid; place-items: center; text-align: center; padding: 90px 24px; color: #fff8ed; background:
-      linear-gradient(115deg, rgba(43,12,21,.94), rgba(100,30,43,.82)),
-      radial-gradient(ellipse at 80% 20%, rgba(200,155,85,.28), transparent 45%); }
-    .hero-inner { max-width: 850px; }
-    .eyebrow { color: #e5c58e; letter-spacing: .24em; text-transform: uppercase; font: 600 .76rem/1.5 Arial, sans-serif; }
-    h1 { font-size: clamp(2.8rem, 7vw, 5.8rem); line-height: 1.06; font-weight: 400; margin: 20px 0; letter-spacing: .025em; }
-    .hero p { font-size: clamp(1.1rem, 2.4vw, 1.4rem); max-width: 690px; margin: 0 auto 28px; color: #f4e8d9; }
-    .button { display: inline-block; background: var(--gold); color: #2e1718; padding: 12px 22px; border-radius: 2px; text-decoration: none; font: 700 .82rem Arial, sans-serif; letter-spacing: .06em; text-transform: uppercase; }
-    .button.outline { background: transparent; color: var(--wine); border: 1px solid var(--gold); }
-    .ornament { color: var(--gold); font-size: 1.5rem; margin: 12px 0; letter-spacing: .5em; }
-    section { padding: 78px 24px; }
-    .container { max-width: 1100px; margin: auto; }
-    .section-head { text-align: center; margin: 0 auto 38px; max-width: 720px; }
-    .section-head h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; color: var(--wine); margin: 0 0 12px; }
-    .section-head p { color: var(--muted); margin: 0; }
-    .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 48px; align-items: center; }
-    .photo-placeholder { min-height: 390px; border: 1px solid #d8c3a1; background: linear-gradient(145deg, #ead9bd, #cba77a 48%, #6b2935); display: grid; place-items: center; padding: 25px; text-align: center; color: #fffaf0; }
-    .photo-placeholder span { max-width: 250px; font-style: italic; font-size: 1.15rem; }
-    .about-copy h2 { color: var(--wine); font-size: 2.5rem; font-weight: 400; margin: 0 0 15px; }
-    .about-copy p { color: #514542; }
-    .forms { background: var(--paper); }
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-    .card { padding: 30px 25px; border: 1px solid #e4d4bb; background: #fffdf9; text-align: center; }
-    .card .number { color: var(--gold); font-size: 1.1rem; letter-spacing: .15em; }
-    .card h3 { font-size: 1.55rem; color: var(--wine); font-weight: 400; margin: 12px 0 8px; }
-    .card p { color: var(--muted); margin: 0; }
-    .shiva { color: #fff8ed; background: var(--wine-dark); }
-    .shiva .section-head h2 { color: #f0d6a5; }
-    .shiva .section-head p { color: #e0cfc6; }
-    .shiva-panel { max-width: 820px; margin: auto; text-align: center; border: 1px solid rgba(200,155,85,.65); padding: 40px 28px; }
-    .shiva-panel h3 { font-size: 2rem; font-weight: 400; margin: 0 0 12px; color: #f0d6a5; }
-    .shiva-panel p { color: #f0e4d9; }
-    .shiva-panel .button { margin-top: 10px; }
-    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .gallery-tile { min-height: 220px; display: grid; place-items: center; text-align: center; padding: 18px; background: #ead9bd; border: 1px solid #d8c3a1; color: #6b2935; font-style: italic; }
-    .gallery-note { text-align: center; color: var(--muted); font-size: .9rem; margin-top: 18px; }
-    .contact { background: #f1e6d5; text-align: center; }
-    .contact p { color: #5d4a45; }
-    .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
-    footer { background: #241016; color: #d9c9bd; padding: 22px 24px; text-align: center; font-size: .86rem; }
-    footer span { color: #e5c58e; }
-    @media (max-width: 760px) {
-      .nav { align-items: flex-start; flex-direction: column; }
-      .navlinks { gap: 12px; }
-      .about-grid { grid-template-columns: 1fr; gap: 28px; }
-      .cards, .gallery-grid { grid-template-columns: 1fr; }
-      .photo-placeholder { min-height: 280px; }
-      section { padding: 58px 20px; }
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name · Dancer</title>
+  <meta name="description" content="Portfolio of Your Name: dancer, choreographer and teacher." />
+  <meta property="og:title" content="Your Name · Dancer" />
+  <meta property="og:description" content="Performances, gallery, videos and bookings." />
+  <meta property="og:image" content="images/hero.jpg" />
+  <meta name="theme-color" content="#1b1215" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header class="topbar">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="#home">Athira Krishnan</a>
-      <div class="navlinks">
-        <a href="#about">About</a>
-        <a href="#dance">Dance Forms</a>
-        <a href="#shivashakti">Shivashakti Arts</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-      </div>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="#home" id="brandName">Your Name</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav id="menu">
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#videos">Videos</a>
+      <a href="#events">Events</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero" id="home">
-      <div class="hero-inner">
-        <div class="eyebrow">Classical Dance • Art • Expression</div>
-        <div class="ornament">✦ ❋ ✦</div>
-        <h1>Athira Krishnan</h1>
-        <p>A classical dancer exploring the beauty of Bharatanatyam, Mohiniyattam and Kuchipudi.</p>
-        <a class="button" href="#about">Discover My Journey</a>
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-text">
+        <p class="eyebrow" id="heroStyle"></p>
+        <h1 id="heroName"></h1>
+        <h2 id="heroTagline"></h2>
+        <p class="lead" id="heroIntro"></p>
+        <a class="btn" href="#videos">Watch performances</a>
+        <a class="btn ghost" href="#contact">Book / enquire</a>
       </div>
     </section>
 
-    <section id="about">
-      <div class="container about-grid">
-        <div class="photo-placeholder"><span>Replace this space with a favourite portrait or stage-performance photograph.</span></div>
-        <div class="about-copy">
-          <div class="eyebrow" style="color:var(--gold)">Namaskaram</div>
-          <h2>My Dance Journey</h2>
-          <p>Welcome to my artistic space. Dance is a meeting of rhythm, movement, expression and storytelling—a way to connect with tradition while continuing to grow as an artist.</p>
-          <p>This portfolio brings together my journey across Bharatanatyam, Mohiniyattam and Kuchipudi, along with selected performances, learning experiences and creative projects.</p>
-          <p><em>Personalise this section with your dance journey, years of training, guru(s), inspirations and the milestones you would like to share.</em></p>
-        </div>
-      </div>
-    </section>
-
-    <section class="forms" id="dance">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow" style="color:var(--gold)">Three traditions, one artistic journey</div>
-          <h2>Dance Forms</h2>
-          <p>Each tradition offers its own language of movement, rhythm and expression.</p>
-        </div>
-        <div class="cards">
-          <article class="card">
-            <div class="number">01</div>
-            <h3>Bharatanatyam</h3>
-            <p>Strong lines, intricate rhythm, expressive abhinaya and storytelling rooted in tradition.</p>
-          </article>
-          <article class="card">
-            <div class="number">02</div>
-            <h3>Mohiniyattam</h3>
-            <p>Gentle, flowing movements and lyrical grace from Kerala’s classical dance heritage.</p>
-          </article>
-          <article class="card">
-            <div class="number">03</div>
-            <h3>Kuchipudi</h3>
-            <p>Expressive storytelling, lively footwork and a vibrant blend of dance and theatre.</p>
-          </article>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="wrap two-col">
+        <figure class="portrait"><img id="aboutPhoto" alt="Portrait" loading="lazy" /></figure>
+        <div>
+          <h3 class="section-title">About</h3>
+          <div id="aboutText"></div>
+          <ul class="stats" id="stats"></ul>
         </div>
       </div>
     </section>
 
-    <section class="shiva" id="shivashakti">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">A creative space within my journey</div>
-          <h2>Shivashakti Arts</h2>
-          <p>A dedicated section for art, learning, workshops and community creativity.</p>
-        </div>
-        <div class="shiva-panel">
-          <h3>Shivashakti Arts</h3>
-          <p>Alongside my classical dance journey, Shivashakti Arts can be a home for creative initiatives such as children’s art workshops, cultural activities, dance-related events and artistic collaborations.</p>
-          <p><em>Add your logo, workshop photographs, upcoming programmes, registration details or a separate Shivashakti Arts page here.</em></p>
-          <a class="button" href="#contact">Enquire About Activities</a>
-        </div>
+    <!-- PORTFOLIO -->
+    <section class="section alt" id="portfolio">
+      <div class="wrap">
+        <h3 class="section-title">Portfolio</h3>
+        <ol class="timeline" id="timeline"></ol>
       </div>
     </section>
 
-    <section id="gallery">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow" style="color:var(--gold)">Moments on and off stage</div>
-          <h2>Gallery & Performances</h2>
-          <p>Explore my classical dance performances, rehearsals and artistic moments on YouTube.</p>
-        </div>
-        <div class="gallery-grid">
-          <a class="gallery-tile" href="https://www.youtube.com/@DanceVibeWithAthira" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
-            <span><strong>Bharatanatyam</strong><br>View performances on my YouTube channel ↗</span>
-          </a>
-          <a class="gallery-tile" href="https://www.youtube.com/@DanceVibeWithAthira" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
-            <span><strong>Mohiniyattam</strong><br>View performances on my YouTube channel ↗</span>
-          </a>
-          <a class="gallery-tile" href="https://www.youtube.com/@DanceVibeWithAthira" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
-            <span><strong>Kuchipudi</strong><br>View performances on my YouTube channel ↗</span>
-          </a>
-        </div>
-        <div style="text-align:center;margin-top:28px">
-          <a class="button" href="https://www.youtube.com/@DanceVibeWithAthira" target="_blank" rel="noopener noreferrer">Visit DanceVibeWithAthira on YouTube</a>
-        </div>
-        <p class="gallery-note">Send me links to specific videos and I can embed selected performances directly here.</p>
+    <!-- TESTIMONIALS -->
+    <section class="section" id="testimonials">
+      <div class="wrap">
+        <h3 class="section-title">Testimonials</h3>
+        <div class="quotes" id="quotes"></div>
       </div>
     </section>
 
-    <section class="contact" id="contact">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow" style="color:var(--gold)">Let's connect</div>
-          <h2>Performances, Events & Enquiries</h2>
-          <p>For performance invitations, workshops, collaborations or enquiries about Shivashakti Arts, please get in touch.</p>
-        </div>
-        <div class="contact-links">
-          <!-- Replace the # links below with your real profile URLs and email. -->
-          <a class="button outline" href="mailto:your-email@example.com">Email Me</a>
-          <a class="button outline" href="#" aria-label="Instagram profile">Instagram</a>
-          <a class="button outline" href="https://www.youtube.com/@DanceVibeWithAthira" target="_blank" rel="noopener noreferrer" aria-label="YouTube channel">YouTube</a>
-        </div>
-        <p style="font-size:.85rem;margin-top:20px">Before publishing, replace the sample email and social links with your own.</p>
+    <!-- GALLERY -->
+    <section class="section alt" id="gallery">
+      <div class="wrap">
+        <h3 class="section-title">Gallery</h3>
+        <div class="grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <!-- VIDEOS -->
+    <section class="section" id="videos">
+      <div class="wrap">
+        <h3 class="section-title">Videos</h3>
+        <div class="videos" id="videoGrid"></div>
+      </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section class="section alt" id="events">
+      <div class="wrap">
+        <h3 class="section-title">Upcoming &amp; Past Events</h3>
+        <div id="eventsList"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="wrap narrow">
+        <h3 class="section-title">Get in touch</h3>
+        <p class="lead center">For performances, collaborations, workshops and classes.</p>
+        <form id="contactForm" novalidate>
+          <label>Name <input name="name" required autocomplete="name" /></label>
+          <label>Email <input type="email" name="email" required autocomplete="email" /></label>
+          <label>Message <textarea name="message" rows="5" required></textarea></label>
+          <button class="btn" type="submit">Send message</button>
+          <p class="form-note" id="formNote" role="status"></p>
+        </form>
+        <ul class="social" id="social"></ul>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div>© <span id="year"></span> Athira Krishnan · Classical Dance & <span>Shivashakti Arts</span></div>
+  <footer class="footer">
+    <p>© <span id="year"></span> <span id="footName"></span>. All rights reserved.</p>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lb-close" id="lbClose" aria-label="Close">×</button>
+    <img id="lbImg" alt="" />
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
