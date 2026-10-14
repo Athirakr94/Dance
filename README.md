@@ -20,6 +20,25 @@ dancer-portfolio/
 3. Videos: upload to YouTube, then paste the video ID (the part after `v=`) into `data.js`.
 4. Preview locally: `cd dancer-portfolio && python3 -m http.server 8000`, then open http://localhost:8000
 
+## 1b. Updating the site later (all in `js/data.js`)
+
+**Add an event.** Copy one block inside `events: [ ... ]`, change the date (`YYYY-MM-DD`), title, venue and
+description. Events dated today or later appear under *Upcoming*; older ones move to *Past* automatically.
+Add events you have already performed in the same way so your history shows.
+
+**Add pictures.**
+1. Copy the photos into `images/gallery/` (small files load faster; aim for under 500 KB each).
+2. Add each file name to the `gallery: [ ... ]` list, e.g. `"images/gallery/my-recital.jpg"`.
+   File names are case-sensitive on GitHub: `Photo.JPG` is not the same as `photo.jpg`.
+
+**Open your school when it is formed.** In the `school` block, change `status: "coming-soon"` to
+`status: "open"`, then fill in the name, description, facts and classes. Until then visitors see a
+"coming soon" message with a "Notify me" button that pre-fills the contact form.
+Use `status: "hidden"` to remove the section entirely.
+
+**Publish changes.** Upload the changed files to your GitHub repo (or `git add . && git commit && git push`).
+The live site updates in a minute or two. Hard-refresh (Ctrl+Shift+R) if you still see the old version.
+
 ## 2. Hosting on GitHub (since athirakr94.github.io is taken)
 
 `athirakr94.github.io` is your one free "user site". You still have good options:

@@ -45,9 +45,28 @@
 
   /* ---------- School ---------- */
   var sc = S.school;
-  if (!sc || sc.enabled === false) {
+  var schoolStatus = sc ? (sc.status || (sc.enabled === false ? "hidden" : "open")) : "hidden";
+  var prefillMessage = function (text) {
+    var m = document.querySelector("#contactForm textarea");
+    if (m && !m.value) m.value = text;
+  };
+
+  if (schoolStatus === "hidden") {
     $("school").remove();
     $("navSchool").remove();
+  } else if (schoolStatus === "coming-soon") {
+    var cs = sc.comingSoon || {};
+    $("schoolFull").remove();
+    $("schoolTagline").remove();
+    $("schoolEyebrow").textContent = "Coming soon";
+    $("schoolName").textContent = cs.heading || "Something new is on its way";
+    $("soonMessage").textContent = cs.message || "";
+    if (cs.when) { $("soonWhen").textContent = cs.when; } else { $("soonWhen").remove(); }
+    $("soonBtn").textContent = cs.button || "Notify me";
+    $("soonBtn").addEventListener("click", function () {
+      prefillMessage("Hello, please let me know when your dance school opens.");
+    });
+    $("schoolSoon").hidden = false;
   } else {
     $("schoolName").textContent = sc.name;
     $("schoolTagline").textContent = sc.tagline;
@@ -74,8 +93,7 @@
     } else {
       // Scroll to the contact form and pre-fill a helpful message
       $("enrolBtn").addEventListener("click", function () {
-        var m = document.querySelector("#contactForm textarea");
-        if (m && !m.value) m.value = "Hello, I would like to enquire about classes at " + sc.name + ".";
+        prefillMessage("Hello, I would like to enquire about classes at " + sc.name + ".");
       });
     }
     var site = safeUrl(sc.website);

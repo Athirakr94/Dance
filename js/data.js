@@ -34,9 +34,24 @@ window.SITE = {
     { year: "2019", title: "Training / certification", detail: "Institution or guru" },
   ],
 
-  // Your dance school / classes. Set `enabled: false` to hide the whole section.
+  // Your dance school.
+  //   status: "coming-soon"  -> shows a "coming soon" teaser (use this until the school is formed)
+  //           "open"         -> shows the full school section (everything below)
+  //           "hidden"       -> removes the section and its menu link
   school: {
-    enabled: true,
+    status: "coming-soon",
+
+    // Shown only while status is "coming-soon"
+    comingSoon: {
+      heading: "Something new is on its way",
+      message:
+        "I am building a dance school of my own. Classes, batches and enrolment details " +
+        "will be announced here. Leave a message and I will let you know as soon as it opens.",
+      when: "Opening soon", // e.g. "Opening January 2027", or "" to hide this line
+      button: "Notify me when it opens",
+    },
+
+    // Everything below is shown only when status is "open"
     name: "Your School Name",
     tagline: "Where movement becomes art",
     description:

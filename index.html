@@ -68,9 +68,15 @@
     <!-- SCHOOL -->
     <section class="section school" id="school">
       <div class="wrap">
-        <p class="eyebrow center">Learn with me</p>
+        <p class="eyebrow center" id="schoolEyebrow">Learn with me</p>
         <h3 class="section-title" id="schoolName">My School</h3>
         <p class="school-tagline" id="schoolTagline"></p>
+        <div class="soon" id="schoolSoon" hidden>
+          <p class="soon-msg" id="soonMessage"></p>
+          <p class="soon-when" id="soonWhen"></p>
+          <a class="btn" id="soonBtn" href="#contact">Notify me</a>
+        </div>
+        <div id="schoolFull">
         <div class="two-col school-intro">
           <figure class="portrait"><img id="schoolPhoto" alt="Dance school" loading="lazy" /></figure>
           <div>
@@ -84,6 +90,7 @@
         </div>
         <h4 class="sub-title">Classes &amp; batches</h4>
         <div class="classes" id="classGrid"></div>
+        </div><!-- /schoolFull -->
       </div>
     </section>
 
